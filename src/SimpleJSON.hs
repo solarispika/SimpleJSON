@@ -32,7 +32,7 @@ getBool (JBool b) = Just b
 getBool _         = Nothing
 
 getObject (JObject o) = Just o
-getObejct _         = Nothing
+getObejct _           = Nothing
 
 getArray (JArray a) = Just a
 getArray _          = Nothing

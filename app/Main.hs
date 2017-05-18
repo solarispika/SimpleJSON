@@ -1,8 +1,9 @@
 module Main where
 
-import PutJSON
+import PrettyJSON
+import Prettify
 import SimpleJSON
 
 main :: IO ()
-main = putJValue (JObject [("foo", JNumber 1), ("bar", JBool False)])
+main = putStrLn $ pretty 80 $ renderJValue (JObject [("foo", JNumber 1), ("bar", JBool False)])
 
