@@ -3,7 +3,7 @@ module PrettyJSON
     renderJValue
   ) where
 
-import SimpleJSON (JValue(..))
+import JSONClass (JValue(..),fromJAry,fromJObj)
 import Prettify (Doc, (<>), char, double, fsep, hcat, punctuate, text, compact, pretty)
 import Numeric (showHex)
 import Data.Bits (shiftR, (.&.))
@@ -52,9 +52,9 @@ renderJValue (JBool True)  = text "true"
 renderJValue (JBool False) = text "false"
 renderJValue JNull         = text "null"
 
-renderJValue (JArray ary) = series '[' ']' renderJValue ary
+renderJValue (JArray ary) = series '[' ']' renderJValue $ fromJAry ary
 
-renderJValue (JObject obj) = series '{' '}' field obj
+renderJValue (JObject obj) = series '{' '}' field $ fromJObj obj
     where field (name,val) = string name
                           <> text ": "
                           <> renderJValue val

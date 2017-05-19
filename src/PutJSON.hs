@@ -1,7 +1,7 @@
 module PutJSON where
 
 import Data.List (intercalate)
-import SimpleJSON
+import JSONClass
 
 renderJValue :: JValue -> String
 
@@ -11,12 +11,12 @@ renderJValue (JBool True)  = "true"
 renderJValue (JBool False) = "false"
 renderJValue JNull         = "null"
 
-renderJValue (JObject o) = "{" ++ pairs o ++ "}"
+renderJValue (JObject (JObj o)) = "{" ++ pairs o ++ "}"
   where pairs [] = ""
         pairs ps = intercalate ", " (map renderPair ps)
         renderPair (k,v) = show k ++ ": " ++ renderJValue v
 
-renderJValue (JArray a) = "[" ++ values a ++ "]"
+renderJValue (JArray (JAry a)) = "[" ++ values a ++ "]"
   where values [] = ""
         values vs = intercalate ", " (map renderJValue vs)
 
