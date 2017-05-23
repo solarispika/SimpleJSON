@@ -1,14 +1,14 @@
 name:                SimpleJSON
 version:             0.1.0.0
--- synopsis:
--- description:
+synopsis:            Simple JSON library
+description:         Sample from Real World Haskell
 homepage:            https://github.com/solarispika/SimpleJSON#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Po-Han, Sung
 maintainer:          solarispika@gmail.com
 copyright:           2017 Po-Han, Sung
-category:            Web
+category:            JSON
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
